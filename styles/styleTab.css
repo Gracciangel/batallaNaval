@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap");
+@keyframes closeCircle {
+  0% {
+    clip-path: circle(100% at center);
+  }
+  100% {
+    clip-path: circle(0% at center);
+  }
+}
+@keyframes backGround {
+  0% {
+    transform: scale(1.2);
+    position: absolute;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: black;
+  }
+}
+body {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+body .containerMsg {
+  margin: auto;
+  background-color: blue;
+  width: 150px;
+  height: 150px;
+}
+body .containerMsg .endMsg {
+  color: white;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body .reset {
+  padding: 0.5rem;
+  border: none;
+  position: absolute;
+  transition: 0.4s;
+}
+body .reset:hover {
+  cursor: pointer;
+  color: red;
+  background-color: black;
+}
+
+.header {
+  display: flex;
+  background-color: yellowgreen;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1rem;
+  justify-content: space-evenly;
+}
+.header h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+.endGame {
+  transition: 0.5s;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  overflow: hidden;
+}
+
+.closeGame {
+  animation: closeCircle 2s linear forwards;
+  background-color: black;
+}
+
+.containerTab {
+  width: 100%;
+  height: 100%;
+  background-color: violet;
+}
+.containerTab .tab {
+  opacity: 70%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 65vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 7rem;
+}
+.containerTab .tab .cord {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(105, 26, 215);
+  box-shadow: 0px 0px 13px 3px whitesmoke;
+  margin: 2px;
+}
+.containerTab .tab .cord:hover {
+  cursor: -webkit-grab;
+}
+.containerTab .tab .show {
+  transition: 0.2s;
+  width: 80px;
+  height: 80px;
+  margin: 1px;
+  background-image: url("../asets/img/navio.webp");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  border-radius: 10px;
+}
+.containerTab .tab .show:hover {
+  cursor: -webkit-grab;
+}
+
+/*# sourceMappingURL=styleTab.css.map */

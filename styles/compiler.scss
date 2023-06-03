@@ -1,0 +1,60 @@
+@import '../styles/animations' ;
+
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    body{
+        width: 100%;
+        height: 100%;
+        background:radial-gradient(circle at center , rgb(135, 52, 214), rgb(52, 39, 126), rgb(109,58,197));
+        animation: backGround 2s linear infinite ;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        // div-filter
+    .div-filter{
+        width: 30%;
+        height: 30%;
+        opacity: 50%;
+        background-color: black;
+        
+    }
+
+        // contianer 
+        .container{
+            display: flex;
+            flex-direction: column;
+            .btn-init{
+                padding: 1rem;
+                
+            }
+            .no-show{
+                display: none;
+            }
+            .form{
+                display: flex;
+                flex-direction: column;
+                margin-top: 1rem;
+                background-color: blue;
+                padding: 1rem;
+                gap: .5rem;
+                align-items: center;
+                #close{
+                    width: 30px;
+                    margin-left: 5%;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            
+          
+            }
+        }
+    }
+}

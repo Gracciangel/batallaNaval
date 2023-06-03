@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap");
+@keyframes closeCircle {
+  0% {
+    clip-path: circle(100% at center);
+  }
+  100% {
+    clip-path: circle(0% at center);
+  }
+}
+@keyframes backGround {
+  0% {
+    transform: scale(1.2);
+    position: absolute;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: black;
+  }
+}
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html body {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgb(135, 52, 214), rgb(52, 39, 126), rgb(109, 58, 197));
+  animation: backGround 2s linear infinite;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+html body .div-filter {
+  width: 30%;
+  height: 30%;
+  opacity: 50%;
+  background-color: black;
+}
+html body .container {
+  display: flex;
+  flex-direction: column;
+}
+html body .container .btn-init {
+  padding: 1rem;
+}
+html body .container .no-show {
+  display: none;
+}
+html body .container .form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  background-color: blue;
+  padding: 1rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+html body .container .form #close {
+  width: 30px;
+  margin-left: 5%;
+}
+html body .container .form #close:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
