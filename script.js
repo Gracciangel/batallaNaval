@@ -1,36 +1,33 @@
 
 
-let form = document.getElementById('form')
-let btn = document.getElementById('btn')
-let body = document.getElementById('body')
-let bubles = document.getElementById('bubles') 
-function show(){
-    form.classList.toggle('form') ;
-    btn.style.display='none'
-    let div = document.createElement('div') ;
-    
-}
-let close = document.getElementById('close').addEventListener(('click'), ()=>{
-    form.classList.remove('form')
-    btn.style.display='block'
-    
-})
 
-const play = document.getElementById('play')
-let namePlayer= document.getElementById('name-player')
 
-play.addEventListener(('click'), (e)=>{
-    e.preventDefault()
-  if(namePlayer.value ===''){
- alert(`ingresa un nombre`)
+function play() { 
+  let form = document.getElementById('formPlay')
+  if(window.getComputedStyle(form).display === 'none'){
+    form.style.display = 'flex'
   }else{
-    alert(`bienvenido ${namePlayer.value}`)
-    window.location.href = './tabPlay.html'
-    
+    form.style.display = 'none'
   }
-})
-
-function bubleShow(){
-  console.log(bubles)
 }
-bubleShow()
+
+ function partida(){
+
+
+const nombreJugador = document.getElementById('nombreJugador');
+const emailJugador = document.getElementById('emailJugador');
+
+const btn = document.getElementById('btnIniciar')
+btn.addEventListener('click', (e)=>{
+  e.preventDefault()
+  let player = {
+    nombre : nombreJugador.value,
+    email : emailJugador.value
+  }
+  
+  window.location.href='./tabPlay.html'
+  return player
+})
+}
+
+partida()

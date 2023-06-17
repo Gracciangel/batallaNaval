@@ -14,19 +14,7 @@ let mensaje  = document.getElementById('msg').className='mensaje' ;
 
 let count = 0
 
-function time(){
-    let time = 20 ; 
-let temporizador = setInterval(() => {
-    
-if(time=== 0 ){
-    clearInterval(temporizador)
-    endGame()
-}else{
-    time--
-    tiempo.innerText=`tiempo restante: ${time}`
-}
-}, 1000);
-}
+
 
 
 function endGame() {
@@ -41,16 +29,33 @@ function endGame() {
             text:`tu puntaje final es de ${count} puntos`
         })
     },1000)
-    
+    return false ;
   }
 
+
+  function time(){
+    let time = 20 ; 
+setInterval(()=>{
+    let temporizador = setInterval(() => {
+    
+        if(time=== 0 ){
+            clearInterval(temporizador)
+            endGame()
+        }else{
+            time--
+            tiempo.innerText=`tiempo restante: ${time}`
+        }
+        }, 1000);
+
+}, 3000)
+return true ; 
+}
 
   
   const arrayDiv = []
 
   function createDivs() {
     
-    time()
     setTimeout(() => {
         //creacion y asignacion del tablero 
 
