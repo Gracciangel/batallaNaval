@@ -1,12 +1,9 @@
 
 
-
-
-
-
 const containerDiv = document.getElementById('continerDiv')
-const containerTab = document.getElementById('tab');
+// const containerTab = document.getElementById('tab');
 let urlNavio = './asets/img/navio.jpeg';
+
 let puntos = document.getElementById('puntaje');
 let tiempo = document.getElementById('tiempo');
 tiempo.innerText='tiempo restante: '
@@ -38,11 +35,11 @@ function endGame() {
     setTimeout(() =>{    
         containerDiv.classList.add('closeGame')
         Swal.fire({
-            icon: 'error',
-            title: `${count}`,
-            text: 'puntaje final',
-            theme:'borderless'
-          })
+            icon:"success",
+            imageUrl: urlNavio ,
+            titleText:`conseguiste descubrir ${count/10} barcos`,
+            text:`tu puntaje final es de ${count} puntos`
+        })
     },1000)
     
   }
@@ -53,53 +50,45 @@ function endGame() {
 
   function createDivs() {
     
-    // time()
+    time()
     setTimeout(() => {
         //creacion y asignacion del tablero 
 
-        for (i = 1; i < 7; i++) {
-            for (j = 1; j < 11; j++) {
+        for (let i = 1; i < 7; i++) {
+            for (let j = 1; j < 11; j++) {
                 let div = document.createElement('div')
                 div.className = 'cord'
-                containerTab.appendChild(div)
+                containerDiv.appendChild(div)
                 arrayDiv.push(div)
 
             }
 
         }
-        //creacion de nuevos indices 
-  
-        for (i = 1; i <= 5; i++) {
-            
-            
-            let index = Math.round(Math.random() * 60);
-            
-            if (arrayDiv.includes(arrayDiv[index])) {
+
+        for(i =1 ; i<=6 ; i++){
+        let index = Math.round(Math.random()*60)    
+        
+        
+        arrayDiv[index].addEventListener(('click'), ()=>{
+            if (arrayDiv.includes(arrayDiv[index])) {   
+                console.log(arrayDiv[index])
                 console.log(arrayDiv[index])
                 puntos.innerText = `puntaje: ${count}`
-                arrayDiv[index].addEventListener(('click'), () => {
-                    Swal.fire({
-                        icon:`${urlNavio}`,
-                        title:`conseguiste un bote`,
 
-                    })
-                    arrayDiv[index].className = 'show'
-                    arrayDiv[index].setAttribute('disabled', 'disabled');
+                    arrayDiv[index].classList.add('win');
+                    arrayDiv[index].disabled = true ;
 
 
                     puntos.innerText = `puntaje: ${count}`
                     count += 10
-                    setTimeout(() => {
-                        arrayDiv[index].style.pointerEvents = 'none';
-                        arrayDiv[index].style.opacity = '50%';
-                    }, 1000)
-
-                })
-
-
+                    arrayDiv[index].style.pointerEvents = 'none';
+                    arrayDiv[index].style.opacity = '50%';
+            }else{
+                arrayDiv[index].classList.add('lost')
+                arrayDiv[index].disabled = true
             }
-        }
-
+        })
+    }
     }, 1500)
 return count ;
 }
