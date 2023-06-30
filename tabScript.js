@@ -1,101 +1,103 @@
 
-
+let hundido = 0 ;
+let puntos = document.getElementById('puntos')
 const containerDiv = document.getElementById('continerDiv')
 // const containerTab = document.getElementById('tab');
-let urlNavio = './asets/img/navio.jpeg';
+let urlNavio = './asets/img/navio.png';
+const arrayDiv = [] ; 
 
-let puntos = document.getElementById('puntaje');
 let tiempo = document.getElementById('tiempo');
-tiempo.innerText='tiempo restante: '
-puntos.innerText='puntaje: '
 let mensaje  = document.getElementById('msg').className='mensaje' ;
 
 
-
-let count = 0
-
-
-
-
+  
 function endGame() {
+    clearInterval(tiempoDeJuego)
     arrayDiv.forEach(e => e.style.pointerEvents='none')
     body.className='endGame'
     setTimeout(() =>{    
         containerDiv.classList.add('closeGame')
-        Swal.fire({
-            icon:"success",
-            imageUrl: urlNavio ,
-            titleText:`conseguiste descubrir ${count/10} barcos`,
-            text:`tu puntaje final es de ${count} puntos`
-        })
+        if(hundido===0){
+            Swal.fire({
+                icon:"error",
+                title:`no pusiste destruir ningun barco`
+            })
+        }else{
+            if(hundido===1){
+                Swal.fire({
+                    icon:"success",
+                    imageUrl: urlNavio ,
+                    title: `lograste destruir ${hundido} barco`
+                })
+            }else{
+                Swal.fire({
+                    icon:"success",
+                    imageUrl: urlNavio ,
+                    title: `lograste destruir ${hundido} barcos`
+                })
+            }
+        }
+      
+       
     },1000)
-    return false ;
+
+
+
   }
 
 
-  function time(){
-    let time = 20 ; 
-setInterval(()=>{
-    let temporizador = setInterval(() => {
-    
-        if(time=== 0 ){
-            clearInterval(temporizador)
-            endGame()
-        }else{
-            time--
-            tiempo.innerText=`tiempo restante: ${time}`
-        }
-        }, 1000);
 
-}, 3000)
-return true ; 
+let time =20
+let tiempoDeJuego = setInterval(()=>{
+time-- ; 
+tiempo.innerText = `tiempo:  ${time}  segundos`
+if(time=== 0){
+    endGame()
+
 }
+}, 1000)
 
-  
-  const arrayDiv = []
 
-  function createDivs() {
+
+function createDivs() {
+    let arrayBoat= []
     
-    setTimeout(() => {
+    
         //creacion y asignacion del tablero 
-
+        
         for (let i = 1; i < 7; i++) {
             for (let j = 1; j < 11; j++) {
-                let div = document.createElement('div')
+             let div = document.createElement('div')
                 div.className = 'cord'
                 containerDiv.appendChild(div)
-                arrayDiv.push(div)
-
+                arrayDiv.push(div) 
             }
-
         }
+        for(i =1 ; i<=10 ; i++){
+           let index = Math.round(Math.random()*60)    
+            arrayBoat.push(index)
+            
+           console.log(arrayDiv[index])
 
-        for(i =1 ; i<=6 ; i++){
-        let index = Math.round(Math.random()*60)    
         
-        
-        arrayDiv[index].addEventListener(('click'), ()=>{
-            if (arrayDiv.includes(arrayDiv[index])) {   
-                console.log(arrayDiv[index])
-                console.log(arrayDiv[index])
-                puntos.innerText = `puntaje: ${count}`
-
-                    arrayDiv[index].classList.add('win');
-                    arrayDiv[index].disabled = true ;
-
-
-                    puntos.innerText = `puntaje: ${count}`
-                    count += 10
-                    arrayDiv[index].style.pointerEvents = 'none';
-                    arrayDiv[index].style.opacity = '50%';
-            }else{
-                arrayDiv[index].classList.add('lost')
-                arrayDiv[index].disabled = true
-            }
-        })
+            arrayDiv[index].addEventListener(('click'), ()=>{
+                console.log('click')
+                if (arrayBoat.includes(index)) {   
+                        hundido++
+                        arrayDiv[index].classList.add('win');
+                        arrayDiv[index].disabled = true  ;
+                        arrayDiv[index].style.pointerEvents = 'none';
+                        arrayDiv[index].style.opacity = '50%';
+                        puntos.innerText=`puntaje: ${hundido*10}`
+                }
+              
+            })
+     
     }
-    }, 1500)
-return count ;
+
+
+    
+
 }
 
 createDivs()

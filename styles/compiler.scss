@@ -16,9 +16,13 @@ body{
     align-items: center;
     
     h1{
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
         position: absolute;
         color: whitesmoke;
         font-size: 4rem;
+        &:hover{
+            cursor: pointer;
+        }
     }
     .uno{
        color : black ;
@@ -30,18 +34,40 @@ body{
     }
 
     .dos{
-        color: #1787d1;
+        color: #0e4996;
         animation: waves 2s ease-in-out  infinite;
     }
 
-    .dos:hover{
-        cursor: pointer;
-    }
-
     .formPlay{
-        display: none;
+        display: flex;
+        margin-top: 30%;
         flex-direction: column;
         margin-top: 16%;
         gap:1rem; 
+      input{
+        transition: .4s;
+        padding: .5rem;
+        &:focus{
+            background-color: #0e4996;
+            color: black;
+          }
+      }
+      button{
+        transition: .5s;
+        padding: .5rem;
+        border-radius: 15px;
+        font-weight: 500;
+        &:hover{
+            cursor: pointer;
+            color: whitesmoke;
+            background-color: rgb(0 180 54);
+            
+        }
+      }
     }
+   
+}
+.error{
+    background-color: red;
+    opacity: 60%;
 }

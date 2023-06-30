@@ -3,49 +3,71 @@
 body{
     display: flex;
     flex-direction: column;
+    margin: 0%;
+    padding: 0%;
 }
 header{
     padding: 1rem;
     display: flex;
     justify-content: space-evenly;
-    margin: .5rem;
     background-color: black;
     h4{
-        color: white;
+        font-size: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        color: green;
+        text-shadow: 0px 0px 10px #004355;
+        margin-top: 3rem;
+    }
+    button{
+        position: absolute;
+        padding: 3px 4rem;
+        font-family: 'Courier New', Courier, monospace;
+        color:red ;
+        border: 1px solid none;
+        background: none;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
 
 .containerTab{
+    
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
     width: 800px;
-    background-color: violet;
+    background-color: black;
+    background-size: cover;
     height: 350px;
+    margin-top: 3rem;
     margin: auto;
     padding: 1rem;
     overflow: hidden;
-
+    box-shadow: 0px 0px 45px 6px #02660b;
     .cord{
-        width: 60px;
-        height: 60px;
-        margin: 1px;
-        border-radius: 15px;
-        background-color: black;
+        width: 35px;
+        height: 35px;
+        margin: 15px;
+        border: 1px dashed rgb(14, 240, 127);
+        
+        background: transparent;
         transition: .3s;
-        animation: tablero 5s linear infinite;
+   
         &:hover{
             transform: scale(1.05);
             cursor:cell;
-            background-color: yellow;
+            background-color: rgba(36, 93, 40, 0.746);
         }
     }
     .win{
-        background-image: url('../asets/img/navio.webp');
+        background-image: url('../asets/img/navio.png');
         background-position: center;
         background-size: cover;
         opacity: 70%;
-        animation: win .5s;
+        background-color: yellow;
+
+
     }
     .lost{
         background-image: url('../asets/img/close.png');
