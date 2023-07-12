@@ -79,3 +79,15 @@ header{
         width: 100px;
         border-radius: 50%;
     }
+.subtitle{
+    padding-top: 2rem;
+    display: flex;
+    
+    
+    h2{
+        color: rgb(9, 74, 9);
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        margin: auto;
+    }
+}
