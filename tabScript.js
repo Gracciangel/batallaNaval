@@ -68,7 +68,7 @@ function createDivs() {
         for (let i = 1; i < 7; i++) {
             for (let j = 1; j < 11; j++) {
              let div = document.createElement('div')
-                div.className = 'cord'
+                div.className = 'cord   '
                 containerDiv.appendChild(div)
                 arrayDiv.push(div) 
             }

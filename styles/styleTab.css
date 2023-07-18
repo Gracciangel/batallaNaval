@@ -69,8 +69,8 @@
   body .containerTab {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    width: 89%;
-    height: 290px;
+    width: 94%;
+    height: 100%;
     background-color: black;
     background-size: cover;
     margin-top: 3rem;
